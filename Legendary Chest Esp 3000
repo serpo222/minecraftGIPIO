@@ -1,1 +1,51 @@
 
+
+function esp2()
+    local RunService = game:GetService("RunService")
+
+    RunService.RenderStepped:Connect(function()
+    for i, v in pairs(game:GetService("Workspace").Effects:GetChildren()) do
+            if v:IsA("Model") then
+                local Chest = v:FindFirstChildOfClass("MeshPart")
+                    if Chest and Chest.MeshId == "rbxassetid://10798559852" then
+                        if not v:FindFirstChild("ESP") then
+                            local BillboardGui = Instance.new("BillboardGui")
+                            local TextLabel = Instance.new("TextLabel")
+                            
+                            BillboardGui.Parent = v
+                            BillboardGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+                            BillboardGui.Active = true
+                            BillboardGui.AlwaysOnTop = true
+                            BillboardGui.LightInfluence = 1
+                            BillboardGui.MaxDistance = 3000
+                            BillboardGui.Size = UDim2.new(20, 0, 20, 0)
+                            BillboardGui.Name = "ESP"
+                        
+                            TextLabel.Parent = BillboardGui
+                            TextLabel.BackgroundColor3 = Color3.new(0, 0, 0)
+                            TextLabel.BackgroundTransparency = 1
+                            TextLabel.BorderSizePixel = 0
+                            TextLabel.Size = UDim2.new(1, 0, 1, 1)
+                            TextLabel.Font = Enum.Font.Ubuntu
+                            TextLabel.Text = "[ Legendary ]"
+                            TextLabel.TextColor3 = Color3.fromRGB(255, 207, 1)
+                            TextLabel.TextScaled = true
+                            TextLabel.TextSize = 14
+                            TextLabel.TextWrapped = true
+                        end
+                    end
+                end
+            end
+        end)
+
+    for i, v in pairs(game:GetService("Workspace").Effects:GetChildren()) do
+        if v:IsA("Model") then
+            local Chest = v:FindFirstChildOfClass("MeshPart")
+            if Chest and Chest.MeshId == "rbxassetid://10798559852" then
+                v.ESP.TextLabel.Visible = true
+            end
+        end
+    end
+end
+
+esp2()
