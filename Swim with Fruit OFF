@@ -1,0 +1,163 @@
+local plr = game.Players.LocalPlayer
+for i,v in pairs(plr.Backpack:GetChildren()) do
+    if v.Name == "Kilo-Kilo" then
+        local df = game.ReplicatedStorage["Stats" .. game.Players.LocalPlayer.Name].Stats.DF
+        df.Value = "Kilo-Kilo"
+    end
+end
+for i,v in pairs(plr.Backpack:GetChildren()) do
+    if v.Name == "Suke-Suke" then
+        local df = game.ReplicatedStorage["Stats" .. game.Players.LocalPlayer.Name].Stats.DF
+        df.Value = "Suke-Suke"
+    end
+end
+for i,v in pairs(plr.Backpack:GetChildren()) do
+    if v.Name == "Spin-Spin" then
+        local df = game.ReplicatedStorage["Stats" .. game.Players.LocalPlayer.Name].Stats.DF
+        df.Value = "Spin-Spin"
+    end
+end
+for i,v in pairs(plr.Backpack:GetChildren()) do
+    if v.Name == "Bari-Bari" then
+        local df = game.ReplicatedStorage["Stats" .. game.Players.LocalPlayer.Name].Stats.DF
+        df.Value = "Bari-Bari"
+    end
+end
+for i,v in pairs(plr.Backpack:GetChildren()) do
+    if v.Name == "Mero-Mero" then
+        local df = game.ReplicatedStorage["Stats" .. game.Players.LocalPlayer.Name].Stats.DF
+        df.Value = "Mero-Mero"
+    end
+end
+for i,v in pairs(plr.Backpack:GetChildren()) do
+    if v.Name == "Horo-Horo" then
+        local df = game.ReplicatedStorage["Stats" .. game.Players.LocalPlayer.Name].Stats.DF
+        df.Value = "Horo-Horo"
+    end
+end
+for i,v in pairs(plr.Backpack:GetChildren()) do
+    if v.Name == "Gomu-Gomu" then
+        local df = game.ReplicatedStorage["Stats" .. game.Players.LocalPlayer.Name].Stats.DF
+        df.Value = "Gomu-Gomu"
+    end
+end
+for i,v in pairs(plr.Backpack:GetChildren()) do
+    if v.Name == "Bomu-Bomu" then
+        local df = game.ReplicatedStorage["Stats" .. game.Players.LocalPlayer.Name].Stats.DF
+        df.Value = "Bomu-Bomu"
+    end
+end
+for i,v in pairs(plr.Backpack:GetChildren()) do
+    if v.Name == "Heal-Heal" then
+        local df = game.ReplicatedStorage["Stats" .. game.Players.LocalPlayer.Name].Stats.DF
+        df.Value = "Heal-Heal"
+    end
+end
+for i,v in pairs(plr.Backpack:GetChildren()) do
+    if v.Name == "Yomi-Yomi" then
+        local df = game.ReplicatedStorage["Stats" .. game.Players.LocalPlayer.Name].Stats.DF
+        df.Value = "Yomi-Yomi"
+    end
+end
+for i,v in pairs(plr.Backpack:GetChildren()) do
+    if v.Name == "Spring-Spring" then
+        local df = game.ReplicatedStorage["Stats" .. game.Players.LocalPlayer.Name].Stats.DF
+        df.Value = "Spring-Spring"
+    end
+end
+for i,v in pairs(plr.Backpack:GetChildren()) do
+    if v.Name == "Zushi-Zushi" then
+        local df = game.ReplicatedStorage["Stats" .. game.Players.LocalPlayer.Name].Stats.DF
+        df.Value = "Zushi-Zushi"
+    end
+end
+for i,v in pairs(plr.Backpack:GetChildren()) do
+    if v.Name == "Gura-Gura" then
+        local df = game.ReplicatedStorage["Stats" .. game.Players.LocalPlayer.Name].Stats.DF
+        df.Value = "Gura-Gura"
+    end
+end
+for i,v in pairs(plr.Backpack:GetChildren()) do
+    if v.Name == "Suna-Suna" then
+        local df = game.ReplicatedStorage["Stats" .. game.Players.LocalPlayer.Name].Stats.DF
+        df.Value = "Suna-Suna"
+    end
+end
+for i,v in pairs(plr.Backpack:GetChildren()) do
+    if v.Name == "Ito-Ito" then
+        local df = game.ReplicatedStorage["Stats" .. game.Players.LocalPlayer.Name].Stats.DF
+        df.Value = "Ito-Ito"
+    end
+end
+for i,v in pairs(plr.Backpack:GetChildren()) do
+    if v.Name == "Goro-Goro" then
+        local df = game.ReplicatedStorage["Stats" .. game.Players.LocalPlayer.Name].Stats.DF
+        df.Value = "Goro-Goro"
+    end
+end
+for i,v in pairs(plr.Backpack:GetChildren()) do
+    if v.Name == "Paw-Paw" then
+        local df = game.ReplicatedStorage["Stats" .. game.Players.LocalPlayer.Name].Stats.DF
+        df.Value = "Paw-Paw"
+    end
+end
+for i,v in pairs(plr.Backpack:GetChildren()) do
+    if v.Name == "Mera-Mera" then
+        local df = game.ReplicatedStorage["Stats" .. game.Players.LocalPlayer.Name].Stats.DF
+        df.Value = "Mera-Mera"
+    end
+end
+for i,v in pairs(plr.Backpack:GetChildren()) do
+    if v.Name == "Kage-Kage" then
+        local df = game.ReplicatedStorage["Stats" .. game.Players.LocalPlayer.Name].Stats.DF
+        df.Value = "Kage-Kage"
+    end
+end
+for i,v in pairs(plr.Backpack:GetChildren()) do
+    if v.Name == "Pika-Pika" then
+        local df = game.ReplicatedStorage["Stats" .. game.Players.LocalPlayer.Name].Stats.DF
+        df.Value = "Pika-Pika"
+    end
+end
+for i,v in pairs(plr.Backpack:GetChildren()) do
+    if v.Name == "Yami-Yami" then
+        local df = game.ReplicatedStorage["Stats" .. game.Players.LocalPlayer.Name].Stats.DF
+        df.Value = "Yami-Yami"
+    end
+end
+for i,v in pairs(plr.Backpack:GetChildren()) do
+    if v.Name == "Yuki-Yuki" then
+        local df = game.ReplicatedStorage["Stats" .. game.Players.LocalPlayer.Name].Stats.DF
+        df.Value = "Yuki-Yuki"
+    end
+end
+for i,v in pairs(plr.Backpack:GetChildren()) do
+    if v.Name == "Tori-Tori" then
+        local df = game.ReplicatedStorage["Stats" .. game.Players.LocalPlayer.Name].Stats.DF
+        df.Value = "Tori-Tori"
+    end
+end
+for i,v in pairs(plr.Backpack:GetChildren()) do
+    if v.Name == "Mochi-Mochi" then
+        local df = game.ReplicatedStorage["Stats" .. game.Players.LocalPlayer.Name].Stats.DF
+        df.Value = "Mochi-Mochi"
+    end
+end
+for i,v in pairs(plr.Backpack:GetChildren()) do
+    if v.Name == "Ope-Ope" then
+        local df = game.ReplicatedStorage["Stats" .. game.Players.LocalPlayer.Name].Stats.DF
+        df.Value = "Ope-Ope"
+    end
+end
+for i,v in pairs(plr.Backpack:GetChildren()) do
+    if v.Name == "Venom-Venom" then
+        local df = game.ReplicatedStorage["Stats" .. game.Players.LocalPlayer.Name].Stats.DF
+        df.Value = "Venom-Venom"
+    end
+end
+
+getgenv().swimwithdf = true -- or false
+if getgenv().swimwithdf then
+    local df = game.ReplicatedStorage["Stats" .. game.Players.LocalPlayer.Name].Stats.DF
+    df.Value = "1"
+end
