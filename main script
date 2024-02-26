@@ -262,9 +262,33 @@ MainChannel:Button("Press Left Alt to freeze/minimise", function()
         end)
 end)
 
+
+
 ChestEspChannel:Button("Common Chest Esp 1500 Range", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/serpo222/minecraftGIPIO/main/Common%20Chest%20Esp%201500", true))()
 end)
+
+ChestEspChannel:Button("Rare Chest Esp 1500 Range", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/serpo222/minecraftGIPIO/main/Rare%20Chest%20Esp%201500", true))()
+end)
+
+ChestEspChannel:Button("Legendary Chest Esp 1500 Range", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/serpo222/minecraftGIPIO/main/Legendary%20Chest%20Esp%201500", true))()
+end)
+
+ChestEspChannel:Button("Legendary Chest Esp 3000 Range", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/serpo222/minecraftGIPIO/main/Legendary%20Chest%20Esp%203000", true))()
+end)
+
+ChestEspChannel:Button("Mythical Chest Esp 1500 Range", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/serpo222/minecraftGIPIO/main/Mythical%20Chest%20Esp%201500", true))()
+end)
+
+ChestEspChannel:Button("Mythical Chest Esp 3000 Range", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/serpo222/minecraftGIPIO/main/Mythical%20Chest%20Esp%203000", true))()
+end)
+
+
 
 
 ExtraFeaturesChannel:Button("Player Esp", function()
