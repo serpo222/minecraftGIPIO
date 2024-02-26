@@ -114,6 +114,9 @@ end
 
 
 
+
+
+
 MainChannel:Button("Hitbox Expander", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Vcsk/RobloxScripts/main/HitboxExpander.lua"))()
 end)
@@ -218,6 +221,8 @@ end)
 
 
 
+
+
 ChestEspChannel:Button("Common Chest Esp 1500 Range", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/serpo222/minecraftGIPIO/main/Common%20Chest%20Esp%201500", true))()
 end)
@@ -238,10 +243,9 @@ ChestEspChannel:Button("Legendary Chest Esp 4500 Range", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/serpo222/minecraftGIPIO/main/Legendary%20Chest%20Esp%204500", true))()
 end)
 
-ChestEspChannel:Button("Legendary Chest Esp 4500 Range", function()
+ChestEspChannel:Button("Legendary Chest Esp 9999 Range", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/serpo222/minecraftGIPIO/main/Legendary%20Chest%20Esp%209999", true))()
 end)
-
 
 ChestEspChannel:Button("Mythical Chest Esp 1500 Range", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/serpo222/minecraftGIPIO/main/Mythical%20Chest%20Esp%201500", true))()
@@ -254,6 +258,7 @@ end)
 ChestEspChannel:Button("Mythical Chest Esp 9999 Range", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/serpo222/minecraftGIPIO/main/Mythical%20Chest%20Esp%209999", true))()
 end)
+
 
 
 
@@ -281,15 +286,6 @@ end)
 
 
 
-
-
-DeveloperFeaturesChannel:Button("Remote Spy", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/78n/SimpleSpy/main/SimpleSpySource.lua"))()
-end)
-
-DeveloperFeaturesChannel:Button("Dark Dex", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/Babyhamsta/RBLX_Scripts/main/Universal/BypassedDarkDexV3.lua", true))()
-end)
 
 
 
@@ -357,4 +353,17 @@ ExtraFeaturesChannel:Button("Remove fog", function()
         end)
     end
         end
+end)
+
+
+
+
+
+
+DeveloperFeaturesChannel:Button("Remote Spy", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/78n/SimpleSpy/main/SimpleSpySource.lua"))()
+end)
+
+DeveloperFeaturesChannel:Button("Dark Dex", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Babyhamsta/RBLX_Scripts/main/Universal/BypassedDarkDexV3.lua", true))()
 end)
