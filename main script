@@ -129,7 +129,7 @@ MainChannel:Button("Press me to activate Hold down 0 to run fast", function()
 
         mouse.KeyDown:Connect(function(key)
     if key == "0" then
-        if player.Character and player.Character.Humanoid.Health > player.Character.Humanoid.MaxHealth * 0.36 then
+        if player.Character and player.Character.Humanoid.Health > player.Character.Humanoid.MaxHealth * 0.3 then
             player.Character.Humanoid.WalkSpeed = 40
         end
     end
