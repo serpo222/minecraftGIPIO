@@ -16,7 +16,7 @@ function esp()
                         BillboardGui.Active = true
                         BillboardGui.AlwaysOnTop = true
                         BillboardGui.LightInfluence = 1
-                        BillboardGui.MaxDistance = 9999
+                        BillboardGui.MaxDistance = 50000
                         BillboardGui.Size = UDim2.new(20, 0, 20, 0)
                         BillboardGui.Name = "ESP"
                     
