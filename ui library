@@ -89,19 +89,7 @@ Discord.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 
 
-local function toggleScreenGui()
-    Discord.Enabled = not Discord.Enabled
-end
 
--- Function to handle key press event
-local function onKeyPress(input)
-    if input.KeyCode == Enum.KeyCode.Insert then
-        toggleScreenGui()
-    end
-end
-
--- Connect the key press event to the function
-game:GetService("UserInputService").InputBegan:Connect(onKeyPress)
 
 
 
@@ -306,6 +294,32 @@ function DiscordLib:Window(text)
 
 	ServersHoldPadding.Name = "ServersHoldPadding"
 	ServersHoldPadding.Parent = ServersHold
+
+
+
+    
+
+
+
+    local function toggleScreenGui()
+        Discord.Enabled = not Discord.Enabled
+    end
+    
+    -- Function to handle key press event
+    local function onKeyPress(input)
+        if input.KeyCode == Enum.KeyCode.Insert then
+            toggleScreenGui()
+        end
+    end
+    
+    -- Connect the key press event to the function
+    game:GetService("UserInputService").InputBegan:Connect(onKeyPress)
+
+
+
+
+
+
 
 	CloseBtn.MouseButton1Click:Connect(
 		function()
