@@ -292,13 +292,26 @@ ChestEspChannel:Button("Mythical Chest Esp 9999 Range", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/serpo222/minecraftGIPIO/main/Mythical%20Chest%20Esp%209999", true))()
 end)
 
+
+
 MedalEspChannel:Button("ALL Medal ESP", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/serpo222/minecraftGIPIO/main/ALL%20MEDAL%20ESP", true))()
 end)
 
-
 MedalEspChannel:Button("Rokushiki Esp", function()
-    --loadstring(game:HttpGet("https://raw.githubusercontent.com/serpo222/minecraftGIPIO/main/ALL%20MEDAL%20ESP", true))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/serpo222/minecraftGIPIO/main/Rokushiki%20Medal%20Esp", true))()
+end)
+
+MedalEspChannel:Button("Black Leg Esp", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/serpo222/minecraftGIPIO/main/BlackLeg%20Medal%20Esp", true))()
+end)
+
+MedalEspChannel:Button("Fishman Karate Esp", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/serpo222/minecraftGIPIO/main/FishmanKarate%20Medal%20Esp", true))()
+end)
+
+MedalEspChannel:Button("Vampire Esp", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/serpo222/minecraftGIPIO/main/Vampire%20Medal%20Esp", true))()
 end)
 
 
