@@ -90,7 +90,7 @@ Discord.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 
 local function toggleScreenGui()
-    Discord.Enabled = not screenGui.Enabled
+    Discord.Enabled = not Discord.Enabled
 end
 
 -- Function to handle key press event
