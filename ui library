@@ -321,31 +321,6 @@ local function toggleScreenGui()
 
 
 
-    local UserInputService = game:GetService("UserInputService")
-
-
-
-    local isVisible = true -- Initial visibility state
-
-    -- Function to toggle the visibility of the frame
-    local function toggleFrameVisibility()
-    isVisible = not isVisible
-    TopFrame.Visible = isVisible
-    end
-
--- Function to handle key press event
-    local function onKeyPress(input)
-    if input.KeyCode == Enum.KeyCode.N then
-        toggleFrameVisibility()
-    end
-end
-
--- Connect the key press event to the function
-
-
-
-
-
 
 
 
