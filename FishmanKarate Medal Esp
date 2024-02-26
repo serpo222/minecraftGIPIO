@@ -7,6 +7,7 @@ function espmedal()
     RunService.RenderStepped:Connect(function()
         for i, v in pairs(game:GetService("Workspace").Effects["Fishman Karate Medal"]:GetChildren()) do
             if not v:FindFirstChild("ESP") then
+                wait(1)
                 local BillboardGui = Instance.new("BillboardGui")
                 local TextLabel = Instance.new("TextLabel")
                 local Highlight = Instance.new("Highlight")
