@@ -247,6 +247,10 @@ ChestEspChannel:Button("Legendary Chest Esp 50k Range", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/serpo222/minecraftGIPIO/main/Legendary%20Chest%20Esp%2050000", true))()
 end)
 
+ChestEspChannel:Button("Legendary Chest Esp 300k Range", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/serpo222/minecraftGIPIO/main/Legendary%20Chest%20Esp%20300000", true))()
+end)
+
 ChestEspChannel:Button("Mythical Chest Esp 1500 Range", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/serpo222/minecraftGIPIO/main/Mythical%20Chest%20Esp%201500", true))()
 end)
