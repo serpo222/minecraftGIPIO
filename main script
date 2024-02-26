@@ -5,6 +5,7 @@ local serv = win:Server("GPO HUB OPENER", "")
 
 local MainChannel = serv:Channel("Main")
 local ChestEspChannel = serv:Channel("Chest ESP")
+local WaterFeaturesChannel = serv:Channel("Water Features")
 local MedalEspChannel = serv:Channel("Medal Esp")
 local ExtraFeaturesChannel = serv:Channel("Extra")
 
@@ -140,26 +141,6 @@ MainChannel:Button("Press me to activate Hold down 0 to run fast", function()
         end)
 end)
 
-MainChannel:Button("Remove fog", function()
-    local Lighting = game:GetService("Lighting")
-
-        Lighting.FogEnd = 100000
-
-        Lighting:GetPropertyChangedSignal("FogEnd"):Connect(function()
-    Lighting.FogEnd = 100000
-        end)
-
-        for _,v in ipairs(Lighting:GetDescendants()) do
-    if v:IsA("Atmosphere") then
-        v.Density = 0
-
-        v:GetPropertyChangedSignal("Density"):Connect(function()
-            v.Density = 0
-        end)
-    end
-        end
-end)
-
 MainChannel:Button("Press L to teleport 13 studs up", function()
     -- Locate the player's character
     local player = game.Players.LocalPlayer
@@ -202,29 +183,6 @@ MainChannel:Button("Press Y to teleport 95 studs up", function()
     game:GetService("UserInputService").InputBegan:Connect(function(input)
     if input.KeyCode == Enum.KeyCode.Y then
         teleportUp()
-    end
-    end)
-end)
-
-MainChannel:Button("Press O to teleport to top of water", function()
-    -- Locate the player's character
-    local player = game.Players.LocalPlayer
-    local character = player.Character or player.CharacterAdded:Wait()
-    local humanoid = character:WaitForChild("Humanoid")
-
-    -- Define the function to teleport vertically
-    local function teleportToY(yPosition)
-    local currentPosition = character.PrimaryPart.Position
-    local newPosition = Vector3.new(currentPosition.X, yPosition, currentPosition.Z)
-
-    -- Teleport the character
-    character:SetPrimaryPartCFrame(CFrame.new(newPosition))
-    end
-
-    -- Connect the function to the 'O' key press event
-    game:GetService("UserInputService").InputBegan:Connect(function(input)
-    if input.KeyCode == Enum.KeyCode.O then
-        teleportToY(8.902780532836914) -- Adjust 50 to your desired Y position
     end
     end)
 end)
@@ -280,6 +238,11 @@ ChestEspChannel:Button("Legendary Chest Esp 4500 Range", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/serpo222/minecraftGIPIO/main/Legendary%20Chest%20Esp%204500", true))()
 end)
 
+ChestEspChannel:Button("Legendary Chest Esp 4500 Range", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/serpo222/minecraftGIPIO/main/Legendary%20Chest%20Esp%209999", true))()
+end)
+
+
 ChestEspChannel:Button("Mythical Chest Esp 1500 Range", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/serpo222/minecraftGIPIO/main/Mythical%20Chest%20Esp%201500", true))()
 end)
@@ -328,6 +291,41 @@ DeveloperFeaturesChannel:Button("Dark Dex", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Babyhamsta/RBLX_Scripts/main/Universal/BypassedDarkDexV3.lua", true))()
 end)
 
+
+
+WaterFeaturesChannel:Button("Press O to teleport to top of water", function()
+    -- Locate the player's character
+    local player = game.Players.LocalPlayer
+    local character = player.Character or player.CharacterAdded:Wait()
+    local humanoid = character:WaitForChild("Humanoid")
+
+    -- Define the function to teleport vertically
+    local function teleportToY(yPosition)
+    local currentPosition = character.PrimaryPart.Position
+    local newPosition = Vector3.new(currentPosition.X, yPosition, currentPosition.Z)
+
+    -- Teleport the character
+    character:SetPrimaryPartCFrame(CFrame.new(newPosition))
+    end
+
+    -- Connect the function to the 'O' key press event
+    game:GetService("UserInputService").InputBegan:Connect(function(input)
+    if input.KeyCode == Enum.KeyCode.O then
+        teleportToY(8.902780532836914) -- Adjust 50 to your desired Y position
+    end
+    end)
+end)
+
+WaterFeaturesChannel:Button("Swim with Fruit ON", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/serpo222/minecraftGIPIO/main/Swim%20with%20Fruit%20ON", true))()
+end)
+
+WaterFeaturesChannel:Button("Swim with Fruit OFF", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/serpo222/minecraftGIPIO/main/Swim%20with%20Fruit%20OFF", true))()
+end)
+
+
+
 ExtraFeaturesChannel:Button("Player Esp", function()
     pcall(function() loadstring(game:HttpGet('https://raw.githubusercontent.com/ic3w0lf22/Unnamed-ESP/master/UnnamedESP.lua'))() end)
 end)
@@ -341,3 +339,22 @@ ExtraFeaturesChannel:Toggle(
     end
 )
 
+ExtraFeaturesChannel:Button("Remove fog", function()
+    local Lighting = game:GetService("Lighting")
+
+        Lighting.FogEnd = 100000
+
+        Lighting:GetPropertyChangedSignal("FogEnd"):Connect(function()
+    Lighting.FogEnd = 100000
+        end)
+
+        for _,v in ipairs(Lighting:GetDescendants()) do
+    if v:IsA("Atmosphere") then
+        v.Density = 0
+
+        v:GetPropertyChangedSignal("Density"):Connect(function()
+            v.Density = 0
+        end)
+    end
+        end
+end)
