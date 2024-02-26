@@ -1,1 +1,290 @@
-a
+repeat wait() until game:IsLoaded()  -- anti afk
+    game:GetService("Players").LocalPlayer.Idled:connect(function()
+    game:GetService("VirtualUser"):ClickButton2(Vector2.new())
+end)
+
+local DiscordLib = loadstring(game:HttpGet"https://raw.githubusercontent.com/dawid-scripts/UI-Libs/main/discord%20lib.txt")()
+local win = DiscordLib:Window("ASX GRAM HUB https://discord.gg/FAPCdbW9q6 discord: grammerscripting")
+
+local serv = win:Server("GPO HUB OPENER", "")
+
+local MainChannel = serv:Channel("Main")
+local ChestEspChannel = serv:Channel("Chest ESP")
+local ExtraFeaturesChannel = serv:Channel("Extra")
+
+
+local DeveloperFeaturesChannel = serv:Channel("Developer")
+
+
+_G.LoopToolEsp = true
+
+
+
+function LoopToolEsp()
+    while _G.LoopToolEsp == true do
+        wait(0.25)
+        -- tools in the game
+        local tools = game.Workspace
+
+        -- like an esp (Extra Sensory Perception)
+        local esp = Instance.new("Highlight")
+
+        -- billboard to display name
+        local bbg = Instance.new("BillboardGui")
+
+        -- configs for the BillboardGui
+            bbg.AlwaysOnTop = true
+        bbg.Size = UDim2.new(0, 100, 0, 30)
+        bbg.StudsOffset = Vector3.new(0, 2, 0)
+
+        -- table to store highlighted tools
+        local highlightedTools = {}
+
+        -- function to highlight tools
+        function highlightTool(item)
+    if item:IsA("Tool") then
+        -- check if the tool has a BoolValue named "HighlightTool"
+        local highlightTool = item:FindFirstChild("HighlightTool")
+        if not highlightTool then
+            highlightTool = Instance.new("BoolValue")
+            highlightTool.Name = "HighlightTool"
+            highlightTool.Parent = item
+        end
+
+        -- ignore if the tool is already highlighted
+        if highlightTool.Value then
+            return
+        end
+
+        -- clone the Highlight instance and BillboardGui
+        local copy = esp:Clone()
+        copy.Parent = item
+        local copy2 = bbg:Clone()
+        copy2.Parent = item
+
+        -- create a text label for the tool name
+        local text = Instance.new("TextLabel", copy2)
+        text.Size = bbg.Size
+        text.TextSize = 15
+        text.BackgroundTransparency = 1
+        text.Text = item.Name
+
+        -- mark the tool as highlighted
+        highlightedTools[item] = true
+
+        -- set the bool to true
+        highlightTool.Value = true
+
+        -- search for other tools with the same name and HighlightTool value of false
+        for _, tool in ipairs(workspace:GetChildren()) do
+            if tool:IsA("Tool") and tool.Name == item.Name and tool ~= item then
+                local otherHighlightTool = tool:FindFirstChild("HighlightTool")
+                if otherHighlightTool and otherHighlightTool:IsA("BoolValue") and not otherHighlightTool.Value then
+                    -- move the highlight to the other tool
+                    for _, child in ipairs(item:GetChildren()) do
+                        if child.Name == "Highlight" or child.Name == "BillboardGui" then
+                            child.Parent = tool
+                        end
+                    end
+                    -- update the HighlightTool value
+                    otherHighlightTool.Value = true
+                    highlightTool.Value = false
+                    break
+                end
+            end
+        end
+    end
+        end
+
+        -- ChildAdded event
+        workspace.ChildAdded:Connect(function(child)
+    if child:IsA("Tool") and not highlightedTools[child] then
+        highlightTool(child)
+    end
+        end)
+
+        -- function to search for tools in the workspace
+        function search()
+    for _, item in pairs(tools:GetDescendants()) do
+        highlightTool(item)
+    end
+        end
+
+        -- connect to the Heartbeat event to search for tools
+        game:GetService("RunService").Heartbeat:Connect(search)
+    end
+end
+
+
+
+MainChannel:Button("Hitbox Expander", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Vcsk/RobloxScripts/main/HitboxExpander.lua"))()
+end)
+
+MainChannel:Button("Press me to activate Hold down 0 to run fast", function()
+    repeat wait() until game.Players.LocalPlayer
+
+        local player = game.Players.LocalPlayer
+        local mouse = player:GetMouse()
+
+        mouse.KeyDown:Connect(function(key)
+    if key == "0" then
+        if player.Character and player.Character.Humanoid.Health > player.Character.Humanoid.MaxHealth * 0.36 then
+            player.Character.Humanoid.WalkSpeed = 40
+        end
+    end
+        end)
+
+        mouse.KeyUp:Connect(function(key)
+    if key == "0" then
+        if player.Character then
+            player.Character.Humanoid.WalkSpeed = player.Character.Humanoid.WalkSpeed
+        end
+    end
+        end)
+end)
+
+MainChannel:Button("Remove fog", function()
+    local Lighting = game:GetService("Lighting")
+
+        Lighting.FogEnd = 100000
+
+        Lighting:GetPropertyChangedSignal("FogEnd"):Connect(function()
+    Lighting.FogEnd = 100000
+        end)
+
+        for _,v in ipairs(Lighting:GetDescendants()) do
+    if v:IsA("Atmosphere") then
+        v.Density = 0
+
+        v:GetPropertyChangedSignal("Density"):Connect(function()
+            v.Density = 0
+        end)
+    end
+        end
+end)
+
+MainChannel:Button("Press L to teleport 13 studs up", function()
+    -- Locate the player's character
+    local player = game.Players.LocalPlayer
+    local character = player.Character or player.CharacterAdded:Wait()
+    local humanoid = character:WaitForChild("Humanoid")
+
+    -- Define the function to teleport the character
+    local function teleportUp()
+    local currentPosition = character:GetPrimaryPartCFrame().Position
+    local newPosition = currentPosition + Vector3.new(0, 13, 0) -- Teleport 10 studs above
+
+    -- Teleport the character
+    character:SetPrimaryPartCFrame(CFrame.new(newPosition))
+    end
+
+        -- Connect the function to the 'R' key press event
+    game:GetService("UserInputService").InputBegan:Connect(function(input)
+    if input.KeyCode == Enum.KeyCode.L then
+        teleportUp()
+    end
+    end)
+end)
+
+MainChannel:Button("Press Y to teleport 95 studs up", function()
+    -- Locate the player's character
+    local player = game.Players.LocalPlayer
+    local character = player.Character or player.CharacterAdded:Wait()
+    local humanoid = character:WaitForChild("Humanoid")
+
+    -- Define the function to teleport the character
+    local function teleportUp()
+    local currentPosition = character:GetPrimaryPartCFrame().Position
+    local newPosition = currentPosition + Vector3.new(0, 95, 0) -- Teleport 10 studs above
+
+    -- Teleport the character
+    character:SetPrimaryPartCFrame(CFrame.new(newPosition))
+    end
+
+        -- Connect the function to the 'R' key press event
+    game:GetService("UserInputService").InputBegan:Connect(function(input)
+    if input.KeyCode == Enum.KeyCode.Y then
+        teleportUp()
+    end
+    end)
+end)
+
+MainChannel:Button("Press O to teleport to top of water", function()
+    -- Locate the player's character
+    local player = game.Players.LocalPlayer
+    local character = player.Character or player.CharacterAdded:Wait()
+    local humanoid = character:WaitForChild("Humanoid")
+
+    -- Define the function to teleport vertically
+    local function teleportToY(yPosition)
+    local currentPosition = character.PrimaryPart.Position
+    local newPosition = Vector3.new(currentPosition.X, yPosition, currentPosition.Z)
+
+    -- Teleport the character
+    character:SetPrimaryPartCFrame(CFrame.new(newPosition))
+    end
+
+    -- Connect the function to the 'O' key press event
+    game:GetService("UserInputService").InputBegan:Connect(function(input)
+    if input.KeyCode == Enum.KeyCode.O then
+        teleportToY(8.902780532836914) -- Adjust 50 to your desired Y position
+    end
+    end)
+end)
+
+MainChannel:Button("Press Left Alt to freeze/minimise", function()
+    -- Locate the player's character
+        local player = game.Players.LocalPlayer
+        local character = player.Character or player.CharacterAdded:Wait()
+
+        -- Track whether the character is currently anchored
+        local isAnchored = false
+
+        -- Define the function to toggle anchoring
+        local function toggleAnchoring()
+    -- Toggle the state of anchoring
+    isAnchored = not isAnchored
+    
+    -- Anchor or unanchor all parts of the character based on the current state
+    for _, part in ipairs(character:GetDescendants()) do
+        if part:IsA("BasePart") then
+            part.Anchored = isAnchored
+        end
+    end
+        end
+
+        -- Connect the function to the left alt key press event
+        game:GetService("UserInputService").InputBegan:Connect(function(input)
+    if input.KeyCode == Enum.KeyCode.LeftAlt then
+        toggleAnchoring() -- Toggle anchoring
+    end
+        end)
+end)
+
+ChestEspChannel:Button("Common Chest Esp 1500 Range", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/serpo222/minecraftGIPIO/main/Common%20Chest%20Esp%201500", true))()
+end)
+
+
+ExtraFeaturesChannel:Button("Player Esp", function()
+    pcall(function() loadstring(game:HttpGet('https://raw.githubusercontent.com/ic3w0lf22/Unnamed-ESP/master/UnnamedESP.lua'))() end)
+end)
+
+DeveloperFeaturesChannel:Button("Remote Spy", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/78n/SimpleSpy/main/SimpleSpySource.lua"))()
+end)
+
+DeveloperFeaturesChannel:Button("Dark Dex", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Babyhamsta/RBLX_Scripts/main/Universal/BypassedDarkDexV3.lua", true))()
+end)
+
+ExtraFeaturesChannel:Toggle(
+    "Loop Tool Esp",
+    false,
+    function(bool)
+        _G.LoopToolEsp = bool
+        LoopToolEsp()
+    end
+)
+
