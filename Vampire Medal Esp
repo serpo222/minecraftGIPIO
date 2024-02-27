@@ -44,6 +44,7 @@ function espmedal()
                 Highlight.OutlineTransparency = 0
             end
         end
+    wait(1)
     end)
                   
     
