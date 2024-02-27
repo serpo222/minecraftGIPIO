@@ -43,10 +43,11 @@ function espmedal()
             end
 wait(1)
         end
+wait(1)
     end)
-    
+wait(1)
     
     
 end
-
+wait(1)
 espmedal()
