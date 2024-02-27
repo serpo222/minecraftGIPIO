@@ -6,7 +6,7 @@ function espmedal()
     RunService.RenderStepped:Connect(function()
         for i, v in pairs(game:GetService("Workspace").Effects["BlackLeg Medal"].Part:GetChildren()) do
             if not v:FindFirstChild("ESP") then
-                wait(1)
+
                 local BillboardGui = Instance.new("BillboardGui")
                 local TextLabel = Instance.new("TextLabel")
                 local Highlight = Instance.new("Highlight")
@@ -41,9 +41,9 @@ function espmedal()
                 Highlight.FillTransparency = 0.5
                 Highlight.OutlineColor = Color3.fromRGB(255,255,255)
                 Highlight.OutlineTransparency = 0
+wait(1)
             end
         end
-    wait(1)
     end)
     
 end
