@@ -167,7 +167,7 @@ MainChannel:Button("Press L to teleport 16 studs up", function()
     end)
 end)
 
-MainChannel:Button("Press Y to teleport 95 studs up", function()
+MainChannel:Button("Press Y to teleport 94 studs up", function()
     -- Locate the player's character
     local player = game.Players.LocalPlayer
     local character = player.Character or player.CharacterAdded:Wait()
@@ -176,7 +176,7 @@ MainChannel:Button("Press Y to teleport 95 studs up", function()
     -- Define the function to teleport the character
     local function teleportUp()
     local currentPosition = character:GetPrimaryPartCFrame().Position
-    local newPosition = currentPosition + Vector3.new(0, 95, 0) -- Teleport 10 studs above
+    local newPosition = currentPosition + Vector3.new(0, 94, 0) -- Teleport 10 studs above
 
     -- Teleport the character
     character:SetPrimaryPartCFrame(CFrame.new(newPosition))
