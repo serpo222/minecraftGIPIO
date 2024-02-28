@@ -266,8 +266,35 @@ end)
 
 
 
-MedalEspChannel:Button("ALL Medal ESP", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/serpo222/minecraftGIPIO/main/ALL%20MEDAL%20ESP", true))()
+MedalEspChannel:Toggle("All Medal Esp", false, function(bool)
+    Number = math.random(1, 1000000)
+
+    function AllMedalESP()
+        for i, v in pairs(game.Workspace.Effects:GetChildren()) do
+            pcall(function()
+                if string.find(v.Name, "Medal") then
+                    if not v:FindFirstChild("ESP".. Number) then
+                        local billboard = Instance.new("BillboardGui", v)
+                        billboard.Name = "ESP" .. Number
+                        billboard.ExtentsOffset = Vector3.new(0, 1, 0)
+                        billboard.Size = UDim2.new(1, 200, 1, 30)
+                        billboard.Adornee = v
+                        billboard.AlwaysOnTop = true
+
+                        local textLabel = Instance.new("TextLabel", billboard)
+                        textLabel.Size = UDim2.new(1, 0, 1, 0)
+                        textLabel.BackgroundTransparency = 1
+                        textLabel.Text = v.Name
+                        textLabel.Font = Enum.Font.Ubuntu
+                        textLabel.TextSize = 20
+                        textLabel.TextYAlignment = 'Top'
+                        textLabel.TextStrokeTransparency = 0.5
+                        textLabel.TextColor3 = Color3.new(1, 1, 1)
+                    end
+                end
+            end)
+        end
+    end
 end)
 
 MedalEspChannel:Button("Rokushiki Esp", function()
