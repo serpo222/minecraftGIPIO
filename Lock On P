@@ -1,0 +1,95 @@
+--aba lock on
+
+print('lock on and off aimbot by yak')
+
+currentMag = 10000000
+closestMag = 10000000
+currentPlr = nil
+plr = game.Players.LocalPlayer
+chr = plr.Character
+mouse = plr:GetMouse()
+   
+function lookAt(pos)
+workspace.CurrentCamera.CFrame = CFrame.new(workspace.CurrentCamera.CFrame.Position,pos)
+end
+
+function getNearestPlr()
+   currentMag = 10000000
+   closestMag = 10000000
+   currentPlr = nil
+   plr = game.Players.LocalPlayer
+   chr = plr.Character
+   mouse = plr:GetMouse()
+   
+   plr = game.Players.LocalPlayer
+   for i,v in pairs(game.Players:GetChildren()) do
+       if v.Name ~= plr.Name then
+           if v.Character ~= nil then
+               if v.Character:FindFirstChild("HumanoidRootPart") ~= nil then
+                   if plr.Character ~= nil then
+                       if plr.Character:FindFirstChild("HumanoidRootPart") ~= nil then
+                           currentMag = (plr.Character.HumanoidRootPart.Position - v.Character.HumanoidRootPart.Position).Magnitude
+                           if currentMag < closestMag then
+                               closestMag = currentMag
+                               currentPlr = v.Character
+                           end
+                       end
+                   end
+               end
+           end
+       end
+   end
+end
+
+lockedOn = false
+mouse.KeyDown:connect(function(key)
+   if key == "p" or key == "P" then
+       
+       if lockedOn == true then
+           lockedOn = false
+           print("Locked off because Q pressed")
+       else    
+           lockedOn = true
+           print("Locking on")
+       end
+       
+       getNearestPlr()
+       
+       if currentPlr ~= nil and lockedOn == true then
+           print("Locked onto "..currentPlr.Name.."!")
+           while lockedOn == true do
+               wait()
+               
+               lookAt(currentPlr.HumanoidRootPart.Position)
+               
+               if lockedOn == false then
+                   break
+               end
+               
+               if currentPlr == nil then
+                   lockedOn = false
+                   print('Locked off because plr nil')
+                   break
+               elseif currentPlr:FindFirstChild("HumanoidRootPart") == nil then
+                   print('Locked off because HumanoidRootPart nil')
+                   lockedOn = false
+                   break
+               elseif currentPlr:FindFirstChild("Humanoid") == nil then
+                   print('Locked off because Humanoid nil')
+                   lockedOn = false
+                   break
+               elseif currentPlr.Humanoid.Health <= 0 then
+                   print('Locked off because enemy plr died')
+                   lockedOn = false
+                   break
+               elseif chr.Humanoid.Health <= 0 then
+                   print('Locked off because your plr died!')
+                   lockedOn = false
+                   break
+               end
+           end
+       else
+           print('no players found!')
+       end
+   end
+end)
