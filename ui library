@@ -307,7 +307,7 @@ local function toggleScreenGui()
     
     -- Function to handle key press event
     local function onKeyPress(input)
-        if input.KeyCode == Enum.KeyCode.Insert then
+        if input.KeyCode == Enum.KeyCode.PageDown then
             toggleScreenGui()
         end
     end
