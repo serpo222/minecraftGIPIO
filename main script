@@ -122,26 +122,35 @@ MainChannel:Button("Hitbox Expander", function()
 end)
 
 MainChannel:Button("Press me to activate Hold down 0 to run fast", function()
-    repeat wait() until game.Players.LocalPlayer
+    local UserInputService = game:GetService("UserInputService")
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+local humanoid = character:WaitForChild("Humanoid")
 
-        local player = game.Players.LocalPlayer
-        local mouse = player:GetMouse()
+local walkSpeed = 16
+local isZeroKeyDown = false
 
-        mouse.KeyDown:Connect(function(key)
-    if key == "0" then
-        if player.Character and player.Character.Humanoid.Health > player.Character.Humanoid.MaxHealth * 0.29 then
-            player.Character.Humanoid.WalkSpeed = 40
-        end
+UserInputService.InputBegan:Connect(function(input)
+    if input.KeyCode == Enum.KeyCode.Zero then
+        isZeroKeyDown = true
+        humanoid.WalkSpeed = walkSpeed
     end
-        end)
+end)
 
-        mouse.KeyUp:Connect(function(key)
-    if key == "0" then
-        if player.Character then
-            player.Character.Humanoid.WalkSpeed = player.Character.Humanoid.WalkSpeed
-        end
+UserInputService.InputEnded:Connect(function(input)
+    if input.KeyCode == Enum.KeyCode.Zero then
+        isZeroKeyDown = false
+        humanoid.WalkSpeed = 16 -- Set back to default speed
     end
-        end)
+end)
+
+while true do
+    if isZeroKeyDown then
+        humanoidRootPart.CFrame = humanoidRootPart.CFrame + humanoidRootPart.CFrame.lookVector * 1
+    end
+    wait()
+end
 end)
 
 MainChannel:Button("Press L to teleport 17 studs up", function()
