@@ -5,7 +5,7 @@ local donoclip = false
 local noclip = false
  
 function b_noclip(key)
-if (key == "n") then
+if (key == "b") then
 if noclip == false then
 donoclip = true
  
