@@ -238,7 +238,7 @@ MainChannel:Button("Lock On P", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/serpo222/minecraftGIPIO/main/Lock%20On%20P", true))()
 end)
 
-MainChannel:Button("Noclip on N", function()
+MainChannel:Button("Noclip on B", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/serpo222/minecraftGIPIO/main/Lock%20On%20P", true))()
 end)
 
