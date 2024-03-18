@@ -129,34 +129,34 @@ end)
 
 MainChannel:Button("Press me to activate Hold down 0 to run fast", function()
     local UserInputService = game:GetService("UserInputService")
-local player = game.Players.LocalPlayer
-local character = player.Character or player.CharacterAdded:Wait()
-local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
-local humanoid = character:WaitForChild("Humanoid")
+    local player = game.Players.LocalPlayer
+    local character = player.Character or player.CharacterAdded:Wait()
+    local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+    local humanoid = character:WaitForChild("Humanoid")
 
-local walkSpeed = 16
-local isZeroKeyDown = false
+    local walkSpeed = 16
+    local isZeroKeyDown = false
 
-UserInputService.InputBegan:Connect(function(input)
+    UserInputService.InputBegan:Connect(function(input)
     if input.KeyCode == Enum.KeyCode.Zero then
         isZeroKeyDown = true
         humanoid.WalkSpeed = walkSpeed
     end
-end)
+    end)
 
-UserInputService.InputEnded:Connect(function(input)
+    UserInputService.InputEnded:Connect(function(input)
     if input.KeyCode == Enum.KeyCode.Zero then
         isZeroKeyDown = false
         humanoid.WalkSpeed = 16 -- Set back to default speed
     end
-end)
+    end)
 
-while true do
+    while true do
     if isZeroKeyDown then
         humanoidRootPart.CFrame = humanoidRootPart.CFrame + humanoidRootPart.CFrame.lookVector * 1
     end
     wait()
-end
+    end
 end)
 
 MainChannel:Button("Press L to teleport 17 studs up", function()
@@ -240,6 +240,28 @@ end)
 
 MainChannel:Button("Noclip on N", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/serpo222/minecraftGIPIO/main/Lock%20On%20P", true))()
+end)
+
+MainChannel:Button("Infinite Jump when you Toggle '", function()
+    local InfiniteJumpEnabled = false -- Start with InfiniteJump disabled initially
+
+    -- Function to toggle InfiniteJumpEnabled when ' key is pressed
+    local function onKeyPress(input)
+    if input.KeyCode == Enum.KeyCode.Quote then -- ' key
+        InfiniteJumpEnabled = not InfiniteJumpEnabled -- Toggle the variable
+        print("InfiniteJumpEnabled:", InfiniteJumpEnabled)
+    end
+    end
+
+    -- Connect the function to the KeyPressed event
+    game:GetService("UserInputService").InputBegan:Connect(onKeyPress)
+
+    -- Jump handler
+    game:GetService("UserInputService").JumpRequest:Connect(function()
+    if InfiniteJumpEnabled then
+        game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Humanoid"):ChangeState("Jumping")
+    end
+    end)
 end)
 
 
