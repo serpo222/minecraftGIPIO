@@ -14,6 +14,7 @@ local ChestEspChannel = serv:Channel("Chest ESP")
 local WaterFeaturesChannel = serv:Channel("Water Features")
 local MedalEspChannel = serv:Channel("Medal Esp")
 local ExtraFeaturesChannel = serv:Channel("Extra")
+local FatherMorningStar1Channel = serv:Channel("FatherMorningStar1")
 
 
 local DeveloperFeaturesChannel = serv:Channel("Developer")
@@ -238,7 +239,7 @@ MainChannel:Button("Lock On P", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/serpo222/minecraftGIPIO/main/Lock%20On%20P", true))()
 end)
 
-MainChannel:Button("Noclip on B", function()
+MainChannel:Button("Noclip on N", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/serpo222/minecraftGIPIO/main/Lock%20On%20P", true))()
 end)
 
@@ -453,3 +454,186 @@ DeveloperFeaturesChannel:Button("Dark Dex", function()
 end)
 
 DeveloperFeaturesChannel:Label("Press Insert To Toggle Gui")
+
+
+
+
+
+
+
+
+
+
+-- GOD SECTION
+
+FatherMorningStar1Channel:Button("Hitbox Expander", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Vcsk/RobloxScripts/main/HitboxExpander.lua"))()
+end)
+
+FatherMorningStar1Channel:Button("Hold down C to run fast", function()
+    local UserInputService = game:GetService("UserInputService")
+    local player = game.Players.LocalPlayer
+    local character = player.Character or player.CharacterAdded:Wait()
+    local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+    local humanoid = character:WaitForChild("Humanoid")
+
+    local walkSpeed = 16
+    local isZeroKeyDown = false
+
+    UserInputService.InputBegan:Connect(function(input)
+    if input.KeyCode == Enum.KeyCode.Zero then
+        isZeroKeyDown = true
+        humanoid.WalkSpeed = walkSpeed
+    end
+    end)
+
+    UserInputService.InputEnded:Connect(function(input)
+    if input.KeyCode == Enum.KeyCode.Zero then
+        isZeroKeyDown = false
+        humanoid.WalkSpeed = 16 -- Set back to default speed
+    end
+    end)
+
+    while true do
+    if isZeroKeyDown then
+        humanoidRootPart.CFrame = humanoidRootPart.CFrame + humanoidRootPart.CFrame.lookVector * 1
+    end
+    wait()
+    end
+end)
+
+FatherMorningStar1Channel:Button("Y to teleport 94 studs up", function()
+    -- Locate the player's character
+    local player = game.Players.LocalPlayer
+    local character = player.Character or player.CharacterAdded:Wait()
+    local humanoid = character:WaitForChild("Humanoid")
+
+    -- Define the function to teleport the character
+    local function teleportUp()
+    local currentPosition = character:GetPrimaryPartCFrame().Position
+    local newPosition = currentPosition + Vector3.new(0, 94, 0) -- Teleport 10 studs above
+
+    -- Teleport the character
+    character:SetPrimaryPartCFrame(CFrame.new(newPosition))
+    end
+
+        -- Connect the function to the 'R' key press event
+    game:GetService("UserInputService").InputBegan:Connect(function(input)
+    if input.KeyCode == Enum.KeyCode.Y then
+        teleportUp()
+    end
+    end)
+end)
+
+FatherMorningStar1Channel:Button("Left Alt to freeze/minimise", function()
+    -- Locate the player's character
+        local player = game.Players.LocalPlayer
+        local character = player.Character or player.CharacterAdded:Wait()
+
+        -- Track whether the character is currently anchored
+        local isAnchored = false
+
+        -- Define the function to toggle anchoring
+        local function toggleAnchoring()
+    -- Toggle the state of anchoring
+    isAnchored = not isAnchored
+    
+    -- Anchor or unanchor all parts of the character based on the current state
+    for _, part in ipairs(character:GetDescendants()) do
+        if part:IsA("BasePart") then
+            part.Anchored = isAnchored
+        end
+    end
+        end
+
+        -- Connect the function to the left alt key press event
+        game:GetService("UserInputService").InputBegan:Connect(function(input)
+    if input.KeyCode == Enum.KeyCode.LeftAlt then
+        toggleAnchoring() -- Toggle anchoring
+    end
+        end)
+end)
+
+FatherMorningStar1Channel:Button("Press O to teleport to top of water", function()
+    -- Locate the player's character
+    local player = game.Players.LocalPlayer
+    local character = player.Character or player.CharacterAdded:Wait()
+    local humanoid = character:WaitForChild("Humanoid")
+
+    -- Define the function to teleport vertically
+    local function teleportToY(yPosition)
+    local currentPosition = character.PrimaryPart.Position
+    local newPosition = Vector3.new(currentPosition.X, yPosition, currentPosition.Z)
+
+    -- Teleport the character
+    character:SetPrimaryPartCFrame(CFrame.new(newPosition))
+    end
+
+    -- Connect the function to the 'O' key press event
+    game:GetService("UserInputService").InputBegan:Connect(function(input)
+    if input.KeyCode == Enum.KeyCode.O then
+        teleportToY(8.902780532836914) -- Adjust 50 to your desired Y position
+    end
+    end)
+end)
+
+FatherMorningStar1Channel:Button("Press L to teleport 17 studs up", function()
+    -- Locate the player's character
+    local player = game.Players.LocalPlayer
+    local character = player.Character or player.CharacterAdded:Wait()
+    local humanoid = character:WaitForChild("Humanoid")
+
+    -- Define the function to teleport the character
+    local function teleportUp()
+    local currentPosition = character:GetPrimaryPartCFrame().Position
+    local newPosition = currentPosition + Vector3.new(0, 17, 0) -- Teleport 10 studs above
+
+    -- Teleport the character
+    character:SetPrimaryPartCFrame(CFrame.new(newPosition))
+    end
+
+        -- Connect the function to the 'R' key press event
+    game:GetService("UserInputService").InputBegan:Connect(function(input)
+    if input.KeyCode == Enum.KeyCode.L then
+        teleportUp()
+    end
+    end)
+end)
+
+FatherMorningStar1Channel:Button("Lock On P", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/serpo222/minecraftGIPIO/main/Lock%20On%20P", true))()
+end)
+
+FatherMorningStar1Channel:Button("Noclip on N", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/serpo222/minecraftGIPIO/main/Lock%20On%20P", true))()
+end)
+
+FatherMorningStar1Channel:Button("Infinite Jump when you Toggle '", function()
+    local InfiniteJumpEnabled = false -- Start with InfiniteJump disabled initially
+
+    -- Function to toggle InfiniteJumpEnabled when ' key is pressed
+    local function onKeyPress(input)
+    if input.KeyCode == Enum.KeyCode.Quote then -- ' key
+        InfiniteJumpEnabled = not InfiniteJumpEnabled -- Toggle the variable
+        print("InfiniteJumpEnabled:", InfiniteJumpEnabled)
+    end
+    end
+
+    -- Connect the function to the KeyPressed event
+    game:GetService("UserInputService").InputBegan:Connect(onKeyPress)
+
+    -- Jump handler
+    game:GetService("UserInputService").JumpRequest:Connect(function()
+    if InfiniteJumpEnabled then
+        game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Humanoid"):ChangeState("Jumping")
+    end
+    end)
+end)
+
+FatherMorningStar1Channel:Button("Swim with Fruit ON", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/serpo222/minecraftGIPIO/main/Swim%20with%20Fruit%20ON", true))()
+end)
+
+FatherMorningStar1Channel:Button("Swim with Fruit OFF", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/serpo222/minecraftGIPIO/main/Swim%20with%20Fruit%20OFF", true))()
+end)
