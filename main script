@@ -14,10 +14,12 @@ local ChestEspChannel = serv:Channel("Chest ESP")
 local WaterFeaturesChannel = serv:Channel("Water Features")
 local MedalEspChannel = serv:Channel("Medal Esp")
 local ExtraFeaturesChannel = serv:Channel("Extra")
-local FatherMorningStar1Channel = serv:Channel("FatherMorningStar1")
 
 
 local DeveloperFeaturesChannel = serv:Channel("Developer")
+
+local FatherMorningStar1Channel = serv:Channel("FatherMorningStar1")
+
 
 
 _G.LoopToolEsp = true
@@ -470,7 +472,7 @@ FatherMorningStar1Channel:Button("Hitbox Expander", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Vcsk/RobloxScripts/main/HitboxExpander.lua"))()
 end)
 
-FatherMorningStar1Channel:Button("Hold down C to run fast", function()
+FatherMorningStar1Channel:Button("Hold down 0 to run fast", function()
     local UserInputService = game:GetService("UserInputService")
     local player = game.Players.LocalPlayer
     local character = player.Character or player.CharacterAdded:Wait()
@@ -576,6 +578,8 @@ FatherMorningStar1Channel:Button("Press O to teleport to top of water", function
     end
     end)
 end)
+
+DeveloperFeaturesChannel:Label("--- ")
 
 FatherMorningStar1Channel:Button("Press L to teleport 17 studs up", function()
     -- Locate the player's character
