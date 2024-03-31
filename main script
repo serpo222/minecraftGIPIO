@@ -472,7 +472,7 @@ FatherMorningStar1Channel:Button("Hitbox Expander", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Vcsk/RobloxScripts/main/HitboxExpander.lua"))()
 end)
 
-FatherMorningStar1Channel:Button("Hold down 0 to run fast", function()
+FatherMorningStar1Channel:Button("Hold down ] to run fast", function()
     local UserInputService = game:GetService("UserInputService")
     local player = game.Players.LocalPlayer
     local character = player.Character or player.CharacterAdded:Wait()
@@ -480,28 +480,29 @@ FatherMorningStar1Channel:Button("Hold down 0 to run fast", function()
     local humanoid = character:WaitForChild("Humanoid")
 
     local walkSpeed = 16
-    local isZeroKeyDown = false
+    local isRightBracketKeyDown = false
 
     UserInputService.InputBegan:Connect(function(input)
-    if input.KeyCode == Enum.KeyCode.Zero then
-        isZeroKeyDown = true
+    if input.KeyCode == Enum.KeyCode.RightBracket then
+        isRightBracketKeyDown = true
         humanoid.WalkSpeed = walkSpeed
     end
     end)
 
     UserInputService.InputEnded:Connect(function(input)
-    if input.KeyCode == Enum.KeyCode.Zero then
-        isZeroKeyDown = false
+    if input.KeyCode == Enum.KeyCode.RightBracket then
+        isRightBracketKeyDown = false
         humanoid.WalkSpeed = 16 -- Set back to default speed
     end
     end)
 
     while true do
-    if isZeroKeyDown then
+    if isRightBracketKeyDown then
         humanoidRootPart.CFrame = humanoidRootPart.CFrame + humanoidRootPart.CFrame.lookVector * 1
     end
     wait()
     end
+
 end)
 
 FatherMorningStar1Channel:Button("Y to teleport 94 studs up", function()
