@@ -531,36 +531,37 @@ FatherMorningStar1Channel:Button("Hold down ] to run fast", function()
 
 end)
 
-FatherMorningStar1Channel:Button("Hold down ' to run 25% faster", function()
+FatherMorningStar1Channel:Button("Hold down [ to run faster can just press twice for gliding", function()
+    local UserInputService = game:GetService("UserInputService")
     local player = game.Players.LocalPlayer
-    local char   = player.Character or player.CharacterAdded:Wait()
-    local root   = char:WaitForChild("HumanoidRootPart")
-    local hum    = char:WaitForChild("Humanoid")
+    local character = player.Character or player.CharacterAdded:Wait()
+    local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+    local humanoid = character:WaitForChild("Humanoid")
 
-    local running = false
-    local shift   = 1.25        -- speed multiplier
+    local walkSpeed = 16
+    local isRightBracketKeyDown = false
 
-    UIS.InputBegan:Connect(function(input, gpe)
-        if gpe or typing() then return end
-        if input.KeyCode == Enum.KeyCode.Quote then
-            running = true
-            hum.WalkSpeed = 16
-        end
-    end)
-
-    UIS.InputEnded:Connect(function(input, gpe)
-        if gpe or typing() then return end
-        if input.KeyCode == Enum.KeyCode.Quote then
-            running      = false
-            hum.WalkSpeed = 16
-        end
-    end)
-
-    while task.wait() do
-        if running and not typing() then
-            root.CFrame = root.CFrame + root.CFrame.LookVector * shift
-        end
+    UserInputService.InputBegan:Connect(function(input)
+    if input.KeyCode == Enum.KeyCode.RightBracket then
+        isRightBracketKeyDown = true
+        humanoid.WalkSpeed = walkSpeed
     end
+    end)
+
+    UserInputService.InputEnded:Connect(function(input)
+    if input.KeyCode == Enum.KeyCode.RightBracket then
+        isRightBracketKeyDown = false
+        humanoid.WalkSpeed = 16 -- Set back to default speed
+    end
+    end)
+
+    while true do
+    if isRightBracketKeyDown then
+        humanoidRootPart.CFrame = humanoidRootPart.CFrame + humanoidRootPart.CFrame.lookVector * 1
+    end
+    wait()
+    end
+
 end)
 
 FatherMorningStar1Channel:Button("Left Alt to freeze/minimise", function()
