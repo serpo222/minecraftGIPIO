@@ -650,11 +650,4 @@ FatherMorningStar1Channel:Button("Swim with Fruit OFF", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/serpo222/minecraftGIPIO/main/Swim%20with%20Fruit%20OFF", true))()
 end)
 
-UIS.InputBegan:Connect(function(input, gpe)
-    if gpe or typing() then return end
-    if input.KeyCode == Enum.KeyCode.LeftControl then
-        local gui = game:GetService("CoreGui"):FindFirstChild("Discord")
-        if gui then gui.Enabled = not gui.Enabled end
-    end
-end)
 
