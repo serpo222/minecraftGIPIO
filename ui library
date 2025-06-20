@@ -307,10 +307,11 @@ local function toggleScreenGui()
     
     -- Function to handle key press event
     local function onKeyPress(input)
-        if input.KeyCode == Enum.KeyCode.PageDown then
+        if input.KeyCode == Enum.KeyCode.PageDown or Enum.KeyCode.LeftCtrl then
             toggleScreenGui()
         end
     end
+
     
     -- Connect the key press event to the function
     game:GetService("UserInputService").InputBegan:Connect(onKeyPress)
