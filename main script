@@ -491,6 +491,12 @@ DeveloperFeaturesChannel:Label("Press Insert To Toggle Gui")
 
 -- GOD SECTION
 
+FatherMorningStar1Channel:Button("Legendary Chest Esp 300k Range", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/serpo222/minecraftGIPIO/main/Legendary%20Chest%20Esp%20300000", true))()
+end)
+FatherMorningStar1Channel:Button("Mythical Chest Esp 50k Range", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/serpo222/minecraftGIPIO/main/Mythical%20Chest%20Esp%2050000", true))()
+end)
 
 FatherMorningStar1Channel:Button("Hold down ] to run fast", function()
     local UserInputService = game:GetService("UserInputService")
@@ -557,29 +563,6 @@ FatherMorningStar1Channel:Button("Hold down ' to run 25% faster", function()
     end
 end)
 
-FatherMorningStar1Channel:Button("Y to teleport 94 studs up", function()
-    -- Locate the player's character
-    local player = game.Players.LocalPlayer
-    local character = player.Character or player.CharacterAdded:Wait()
-    local humanoid = character:WaitForChild("Humanoid")
-
-    -- Define the function to teleport the character
-    local function teleportUp()
-    local currentPosition = character:GetPrimaryPartCFrame().Position
-    local newPosition = currentPosition + Vector3.new(0, 94, 0) -- Teleport 10 studs above
-
-    -- Teleport the character
-    character:SetPrimaryPartCFrame(CFrame.new(newPosition))
-    end
-
-        -- Connect the function to the 'R' key press event
-    game:GetService("UserInputService").InputBegan:Connect(function(input)
-    if input.KeyCode == Enum.KeyCode.Y then
-        teleportUp()
-    end
-    end)
-end)
-
 FatherMorningStar1Channel:Button("Left Alt to freeze/minimise", function()
     -- Locate the player's character
         local player = game.Players.LocalPlayer
@@ -607,6 +590,29 @@ FatherMorningStar1Channel:Button("Left Alt to freeze/minimise", function()
         toggleAnchoring() -- Toggle anchoring
     end
         end)
+end)
+
+FatherMorningStar1Channel:Button("Y to teleport 94 studs up", function()
+    -- Locate the player's character
+    local player = game.Players.LocalPlayer
+    local character = player.Character or player.CharacterAdded:Wait()
+    local humanoid = character:WaitForChild("Humanoid")
+
+    -- Define the function to teleport the character
+    local function teleportUp()
+    local currentPosition = character:GetPrimaryPartCFrame().Position
+    local newPosition = currentPosition + Vector3.new(0, 94, 0) -- Teleport 10 studs above
+
+    -- Teleport the character
+    character:SetPrimaryPartCFrame(CFrame.new(newPosition))
+    end
+
+        -- Connect the function to the 'R' key press event
+    game:GetService("UserInputService").InputBegan:Connect(function(input)
+    if input.KeyCode == Enum.KeyCode.Y then
+        teleportUp()
+    end
+    end)
 end)
 
 FatherMorningStar1Channel:Button("Press O to teleport to top of water", function()
