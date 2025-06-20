@@ -491,9 +491,6 @@ DeveloperFeaturesChannel:Label("Press Insert To Toggle Gui")
 
 -- GOD SECTION
 
-FatherMorningStar1Channel:Button("Hitbox Expander", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/Vcsk/RobloxScripts/main/HitboxExpander.lua"))()
-end)
 
 FatherMorningStar1Channel:Button("Hold down ] to run fast", function()
     local UserInputService = game:GetService("UserInputService")
