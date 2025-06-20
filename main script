@@ -542,7 +542,7 @@ FatherMorningStar1Channel:Button("Hold down [ to run faster can just press twice
     local isRightBracketKeyDown = false
 
     UserInputService.InputBegan:Connect(function(input)
-    if input.KeyCode == Enum.KeyCode.RightBracket then
+    if input.KeyCode == Enum.KeyCode.LeftBracket then
         isRightBracketKeyDown = true
         humanoid.WalkSpeed = walkSpeed
     end
