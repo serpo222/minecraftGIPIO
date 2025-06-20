@@ -528,6 +528,38 @@ FatherMorningStar1Channel:Button("Hold down ] to run fast", function()
 
 end)
 
+FatherMorningStar1Channel:Button("Hold down ' to run 25% faster", function()
+    local player = game.Players.LocalPlayer
+    local char   = player.Character or player.CharacterAdded:Wait()
+    local root   = char:WaitForChild("HumanoidRootPart")
+    local hum    = char:WaitForChild("Humanoid")
+
+    local running = false
+    local shift   = 1.25        -- speed multiplier
+
+    UIS.InputBegan:Connect(function(input, gpe)
+        if gpe or typing() then return end
+        if input.KeyCode == Enum.KeyCode.Quote then
+            running = true
+            hum.WalkSpeed = 16
+        end
+    end)
+
+    UIS.InputEnded:Connect(function(input, gpe)
+        if gpe or typing() then return end
+        if input.KeyCode == Enum.KeyCode.Quote then
+            running      = false
+            hum.WalkSpeed = 16
+        end
+    end)
+
+    while task.wait() do
+        if running and not typing() then
+            root.CFrame = root.CFrame + root.CFrame.LookVector * shift
+        end
+    end
+end)
+
 FatherMorningStar1Channel:Button("Y to teleport 94 studs up", function()
     -- Locate the player's character
     local player = game.Players.LocalPlayer
@@ -605,58 +637,7 @@ end)
 
 DeveloperFeaturesChannel:Label("--- ")
 
-FatherMorningStar1Channel:Button("Press L to teleport 17 studs up", function()
-    -- Locate the player's character
-    local player = game.Players.LocalPlayer
-    local character = player.Character or player.CharacterAdded:Wait()
-    local humanoid = character:WaitForChild("Humanoid")
 
-    -- Define the function to teleport the character
-    local function teleportUp()
-    local currentPosition = character:GetPrimaryPartCFrame().Position
-    local newPosition = currentPosition + Vector3.new(0, 17, 0) -- Teleport 10 studs above
-
-    -- Teleport the character
-    character:SetPrimaryPartCFrame(CFrame.new(newPosition))
-    end
-
-        -- Connect the function to the 'R' key press event
-    game:GetService("UserInputService").InputBegan:Connect(function(input)
-    if input.KeyCode == Enum.KeyCode.L then
-        teleportUp()
-    end
-    end)
-end)
-
-FatherMorningStar1Channel:Button("Lock On P", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/serpo222/minecraftGIPIO/main/Lock%20On%20P", true))()
-end)
-
-FatherMorningStar1Channel:Button("Noclip on N", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/serpo222/minecraftGIPIO/main/Lock%20On%20P", true))()
-end)
-
-FatherMorningStar1Channel:Button("Infinite Jump when you Toggle '", function()
-    local InfiniteJumpEnabled = false -- Start with InfiniteJump disabled initially
-
-    -- Function to toggle InfiniteJumpEnabled when ' key is pressed
-    local function onKeyPress(input)
-    if input.KeyCode == Enum.KeyCode.Quote then -- ' key
-        InfiniteJumpEnabled = not InfiniteJumpEnabled -- Toggle the variable
-        print("InfiniteJumpEnabled:", InfiniteJumpEnabled)
-    end
-    end
-
-    -- Connect the function to the KeyPressed event
-    game:GetService("UserInputService").InputBegan:Connect(onKeyPress)
-
-    -- Jump handler
-    game:GetService("UserInputService").JumpRequest:Connect(function()
-    if InfiniteJumpEnabled then
-        game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Humanoid"):ChangeState("Jumping")
-    end
-    end)
-end)
 
 FatherMorningStar1Channel:Button("Swim with Fruit ON", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/serpo222/minecraftGIPIO/main/Swim%20with%20Fruit%20ON", true))()
